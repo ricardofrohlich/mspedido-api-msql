@@ -9,16 +9,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Baixa o código do repositório
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Instala o Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
           cache: maven
+
+      - name: Dá permissão ao Maven Wrapper
+        run: chmod +x mvnw
 
       - name: Compila o projeto
         run: ./mvnw -B clean compile
