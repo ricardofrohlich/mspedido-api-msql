@@ -36,7 +36,8 @@ public class ItemPedidoService {
         item.setSubtotal(produto.getPreco() * item.getQuantidade());
         //aqui agora eu vou chamar o recalculaValor
 
-        produtoClient.baixarEstoque(item.getProdutoId(), item.getQuantidade());
+        // comentar isso REST sincrono, comentar aqui que agora isso vai ocorrer pelo RabbitMQ Assíncrono
+        //produtoClient.baixarEstoque(item.getProdutoId(), item.getQuantidade());
         ItemPedido itemSalvo = repository.save(item);
         //enviando a mensagem pro RabbitMQ solicitando a baixa do estoque
         estoquePublisher.publicarBaixaEstoque(

@@ -18,12 +18,13 @@ public class PedidoService {
         this.repository = repository;
         this.itemPedidoRepository = itemPedidoRepository;
     }
-
     public Pedido salvar(Pedido pedido){
 
-        for(ItemPedido itemPedido : pedido.getItens()){
-            itemPedido.setPedido(pedido);
-        }
+        //if (pedido.getItens() != null) {// correção do bug sem itens
+            for(ItemPedido itemPedido : pedido.getItens()){
+                itemPedido.setPedido(pedido);
+            }
+        //}
         return repository.save(pedido);
     }
 

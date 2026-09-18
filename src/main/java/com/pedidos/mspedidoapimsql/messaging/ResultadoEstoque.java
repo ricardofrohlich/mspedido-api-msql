@@ -1,5 +1,7 @@
 package com.pedidos.mspedidoapimsql.messaging;
 
+import java.io.Serializable;
+
 public class ResultadoEstoque {
 
     private Long pedidoId;

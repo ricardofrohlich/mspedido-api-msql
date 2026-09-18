@@ -1,6 +1,8 @@
 package com.pedidos.mspedidoapimsql.messaging;
 
-public class BaixarEstoqueCommand {
+import java.io.Serializable;
+
+public class BaixarEstoqueCommand  {
 
     private Long pedidoId;
     private Long itemId;
